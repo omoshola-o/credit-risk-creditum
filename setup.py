@@ -11,7 +11,7 @@ setup(
         "scikit-learn>=0.24.0",
         "typing>=3.7.4",
     ],
-    author="Your Name",
+    author="Creditum",
     author_email="your.email@example.com",
     description="A credit risk assessment system for individual and corporate applications",
     keywords="credit, risk, assessment, finance",
