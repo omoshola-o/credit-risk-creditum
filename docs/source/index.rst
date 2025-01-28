@@ -21,6 +21,9 @@ Key Features
 * Built-in bias detection and mitigation
 * Privacy-preserving data handling
 
+Credit Risk Assessment Documentation
+================================
+
 .. toctree::
    :maxdepth: 2
    :caption: Getting Started
@@ -37,11 +40,15 @@ Key Features
    core/risk_assessment
    core/economic_indicators
    core/decision_engine
+   data_preprocessing
+   example_notebooks
 
 .. toctree::
    :maxdepth: 2
-   :caption: API Reference
+   :caption: Technical Details
 
+   math_foundations
+   validation
    api/core
    api/models
    api/utils
@@ -63,15 +70,9 @@ Key Features
    changelog
    roadmap
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Documentation
+Indices and tables
+==================
 
-   data_preprocessing
-   example_notebooks
- 
- .. toctree::
-   :maxdepth: 2
-   :caption: Technical Details
-
-   math_foundations
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
