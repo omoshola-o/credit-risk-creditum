@@ -21,30 +21,34 @@ Key Features
 * Built-in bias detection and mitigation
 * Privacy-preserving data handling
 
+
+.. image:: _static/credit_risk_flow.png
+   :alt: Credit Risk Assessment Flow
+   :align: center
+
 .. toctree::
    :maxdepth: 2
    :caption: Getting Started
 
+   quickstart_guide
    installation
-   quickstart
    usage
+
+.. toctree::
+   :maxdepth: 2
+   :caption: User Guide
+
+   data_preprocessing
+   example_notebooks
+   validation
    configuration
 
 .. toctree::
    :maxdepth: 2
-   :caption: Core Features
+   :caption: Technical Details
 
-   core/risk_assessment
-   core/economic_indicators
-   core/decision_engine
-
-.. toctree::
-   :maxdepth: 2
-   :caption: API Reference
-
-   api/core
-   api/models
-   api/utils
+   math_foundations
+   api
 
 .. toctree::
    :maxdepth: 2
@@ -54,11 +58,3 @@ Key Features
    advanced/ethical_ai
    advanced/security
    advanced/customization
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Development
-
-   contributing
-   changelog
-   roadmap
