@@ -76,3 +76,38 @@ Custom Risk Models
                 'medium': 0.50,
                 'high': 0.75
             }
+
+Advanced Usage Examples
+-------------------
+
+Economic Factor Integration
+^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: python
+
+    # Calculate economic impact
+    economic_impact = app.calculate_economic_impact({
+        'gdp_growth': 0.03,
+        'unemployment': 0.05,
+        'inflation': 0.02
+    })
+
+Custom Scoring Models
+^^^^^^^^^^^^^^^^^
+.. code-block:: python
+
+    class CustomScorer(BaseScorer):
+        def calculate_score(self, features):
+            base_score = self.calculate_base_score(features)
+            economic_factor = self.get_economic_factor()
+            return self.adjust_score(base_score, economic_factor)
+
+Model Performance Analysis
+^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: python
+
+    # Get detailed model performance metrics
+    metrics = model.evaluate({
+        'gini': True,
+        'ks_statistic': True,
+        'roc_auc': True
+    })

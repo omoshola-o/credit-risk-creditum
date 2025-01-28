@@ -26,7 +26,7 @@ Key Features
    :caption: Getting Started
 
    installation
-   quickstart
+   quickstart_guide
    usage
    configuration
 
@@ -62,3 +62,16 @@ Key Features
    contributing
    changelog
    roadmap
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Documentation
+
+   data_preprocessing
+   example_notebooks
+ 
+ .. toctree::
+   :maxdepth: 2
+   :caption: Technical Details
+
+   math_foundations
