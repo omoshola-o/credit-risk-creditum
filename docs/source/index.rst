@@ -3,58 +3,62 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Credit Risk Assessment's documentation!
-===============================================
+Credit Risk Assessment Package Documentation
+=========================================
+
+Welcome to Credit Risk Assessment's comprehensive documentation! This package provides advanced tools for evaluating credit risk in both individual and corporate applications, with special focus on automotive finance.
+
+.. image:: _static/architecture.png
+   :alt: Credit Risk Assessment Architecture
+   :align: center
+
+Key Features
+-----------
+* Advanced credit risk modeling using machine learning
+* Individual and corporate credit assessment
+* Economic indicators integration
+* Real-time risk adjustment
+* Built-in bias detection and mitigation
+* Privacy-preserving data handling
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Getting Started
 
    installation
+   quickstart
    usage
-   api
+   configuration
 
-Introduction
------------
+.. toctree::
+   :maxdepth: 2
+   :caption: Core Features
 
-The Credit Risk Assessment package provides tools for evaluating credit risk for both
-individual and corporate applications.
+   core/risk_assessment
+   core/economic_indicators
+   core/decision_engine
 
-Quick Start
-----------
+.. toctree::
+   :maxdepth: 2
+   :caption: API Reference
 
-Installation
-~~~~~~~~~~~
+   api/core
+   api/models
+   api/utils
 
-.. code-block:: bash
+.. toctree::
+   :maxdepth: 2
+   :caption: Advanced Topics
 
-   pip install credit-risk-assessment
+   advanced/ml_models
+   advanced/ethical_ai
+   advanced/security
+   advanced/customization
 
-Basic Usage
-~~~~~~~~~~
+.. toctree::
+   :maxdepth: 1
+   :caption: Development
 
-.. code-block:: python
-
-   from credit_risk_assessment import CreditApplication
-
-   # Initialize application processor
-   credit_app = CreditApplication()
-
-   # Process application
-   application_data = {
-       'credit_score': 720,
-       'monthly_income': 5000,
-       'monthly_debt': 1500,
-       'loan_amount': 20000,
-       'loan_purpose': 'home_improvement'
-   }
-
-   result = credit_app.make_decision(application_data)
-   print(result)
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   contributing
+   changelog
+   roadmap

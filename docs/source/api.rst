@@ -1,53 +1,68 @@
-API Documentation
-================
+API Reference
+============
 
-Core Components
--------------
+Core API
+-------
 
-Credit Application
-~~~~~~~~~~~~~~~~
-.. automodule:: credit_risk_assessment.core.base
+CreditApplication
+^^^^^^^^^^^^^^^
+
+.. autoclass:: credit_risk.core.application.CreditApplication
    :members:
    :undoc-members:
    :show-inheritance:
 
-Economic Indicators
-~~~~~~~~~~~~~~~~~
-.. automodule:: credit_risk_assessment.core.economic
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+
+      make_decision
+      validate_application
+      calculate_max_loan_amount
+
+EconomicIndicators
+^^^^^^^^^^^^^^^^
+
+.. autoclass:: credit_risk.core.economic.EconomicIndicators
    :members:
    :undoc-members:
    :show-inheritance:
 
-Risk Assessment Models
---------------------
+Models API
+---------
 
-Individual Risk Assessment
-~~~~~~~~~~~~~~~~~~~~~~~~
-.. automodule:: credit_risk_assessment.core.individual
+IndividualRiskAssessment
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. autoclass:: credit_risk.models.individual.IndividualRiskAssessment
    :members:
    :undoc-members:
    :show-inheritance:
 
-Corporate Risk Assessment
-~~~~~~~~~~~~~~~~~~~~~~~
-.. automodule:: credit_risk_assessment.core.corporate
+CorporateRiskAssessment
+^^^^^^^^^^^^^^^^^^^^^
+
+.. autoclass:: credit_risk.models.corporate.CorporateRiskAssessment
    :members:
    :undoc-members:
    :show-inheritance:
 
-Utility Functions
----------------
+Utilities
+--------
 
-Financial Utilities
-~~~~~~~~~~~~~~~~~
-.. automodule:: credit_risk_assessment.utils.financial
+Data Processing
+^^^^^^^^^^^^^
+
+.. automodule:: credit_risk.utils.data_processing
    :members:
    :undoc-members:
    :show-inheritance:
 
-Data Validation
-~~~~~~~~~~~~~~
-.. automodule:: credit_risk_assessment.utils.validators
+Model Validation
+^^^^^^^^^^^^^
+
+.. automodule:: credit_risk.utils.validation
    :members:
    :undoc-members:
    :show-inheritance:
