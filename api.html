@@ -1,0 +1,243 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; Credit Risk Assessment 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Credit Risk Assessment
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Credit Risk Assessment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
+<section id="core-api">
+<h2>Core API<a class="headerlink" href="#core-api" title="Link to this heading"></a></h2>
+<section id="creditapplication">
+<h3>CreditApplication<a class="headerlink" href="#creditapplication" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="credit_risk.core.application.CreditApplication">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">credit_risk.core.application.</span></span><span class="sig-name descname"><span class="pre">CreditApplication</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_credit_score</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_dti</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.43</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/credit_risk/core/application.html#CreditApplication"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#credit_risk.core.application.CreditApplication" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Handle credit applications and make approval decisions</p>
+<p class="rubric">Methods</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="credit_risk.core.application.CreditApplication.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_credit_score</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_dti</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.43</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/credit_risk/core/application.html#CreditApplication.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#credit_risk.core.application.CreditApplication.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="credit_risk.core.application.CreditApplication.validate_application">
+<span class="sig-name descname"><span class="pre">validate_application</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">application_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'individual'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.13)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/credit_risk/core/application.html#CreditApplication.validate_application"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#credit_risk.core.application.CreditApplication.validate_application" title="Link to this definition"></a></dt>
+<dd><p>Validate credit application data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="credit_risk.core.application.CreditApplication.make_decision">
+<span class="sig-name descname"><span class="pre">make_decision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">application_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'individual'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/credit_risk/core/application.html#CreditApplication.make_decision"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#credit_risk.core.application.CreditApplication.make_decision" title="Link to this definition"></a></dt>
+<dd><p>Make credit approval decision</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="economicindicators">
+<h3>EconomicIndicators<a class="headerlink" href="#economicindicators" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="credit_risk.core.economic.EconomicIndicators">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">credit_risk.core.economic.</span></span><span class="sig-name descname"><span class="pre">EconomicIndicators</span></span><a class="reference internal" href="_modules/credit_risk/core/economic.html#EconomicIndicators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#credit_risk.core.economic.EconomicIndicators" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Handle economic indicators and their impact on credit risk assessment.</p>
+<p>This class manages various economic indicators such as CPI, GDP growth,
+unemployment rate, etc., and calculates their impact on credit risk.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="credit_risk.core.economic.EconomicIndicators.indicators">
+<span class="sig-name descname"><span class="pre">indicators</span></span><a class="headerlink" href="#credit_risk.core.economic.EconomicIndicators.indicators" title="Link to this definition"></a></dt>
+<dd><p>Dictionary storing current economic indicators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="credit_risk.core.economic.EconomicIndicators.update_indicators">
+<span class="sig-name descname"><span class="pre">update_indicators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indicator_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/credit_risk/core/economic.html#EconomicIndicators.update_indicators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#credit_risk.core.economic.EconomicIndicators.update_indicators" title="Link to this definition"></a></dt>
+<dd><p>Update economic indicators with current data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>indicator_data</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><em>Any</em><em>]</em>) – Dictionary containing economic indicators.
+Expected keys:
+- cpi (float): Consumer Price Index
+- gdp_growth (float): GDP growth rate
+- unemployment_rate (float): Unemployment rate
+- interest_rate (float): Current interest rate
+- inflation_rate (float): Inflation rate
+- industry_growth (Dict[str, float]): Growth rates by industry
+- market_volatility (float): Market volatility index
+- currency_stability (float): Currency stability index</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">economic</span> <span class="o">=</span> <span class="n">EconomicIndicators</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="s1">&#39;cpi&#39;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;gdp_growth&#39;</span><span class="p">:</span> <span class="mf">0.03</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;unemployment_rate&#39;</span><span class="p">:</span> <span class="mf">0.05</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">economic</span><span class="o">.</span><span class="n">update_indicators</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+<section id="models-api">
+<h2>Models API<a class="headerlink" href="#models-api" title="Link to this heading"></a></h2>
+<section id="individualriskassessment">
+<h3>IndividualRiskAssessment<a class="headerlink" href="#individualriskassessment" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="credit_risk.models.individual.IndividualRiskAssessment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">credit_risk.models.individual.</span></span><span class="sig-name descname"><span class="pre">IndividualRiskAssessment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">economic_indicators</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#credit_risk.core.economic.EconomicIndicators" title="credit_risk.core.economic.EconomicIndicators"><span class="pre">EconomicIndicators</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/credit_risk/models/individual.html#IndividualRiskAssessment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#credit_risk.models.individual.IndividualRiskAssessment" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseRiskAssessment</span></code></p>
+<p>Handle individual credit risk assessment</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="credit_risk.models.individual.IndividualRiskAssessment.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">economic_indicators</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#credit_risk.core.economic.EconomicIndicators" title="credit_risk.core.economic.EconomicIndicators"><span class="pre">EconomicIndicators</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/credit_risk/models/individual.html#IndividualRiskAssessment.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#credit_risk.models.individual.IndividualRiskAssessment.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="credit_risk.models.individual.IndividualRiskAssessment.calculate_risk_score">
+<span class="sig-name descname"><span class="pre">calculate_risk_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></span><a class="reference internal" href="_modules/credit_risk/models/individual.html#IndividualRiskAssessment.calculate_risk_score"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#credit_risk.models.individual.IndividualRiskAssessment.calculate_risk_score" title="Link to this definition"></a></dt>
+<dd><p>Calculate individual risk score with economic factors</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="corporateriskassessment">
+<h3>CorporateRiskAssessment<a class="headerlink" href="#corporateriskassessment" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="credit_risk.models.corporate.CorporateRiskAssessment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">credit_risk.models.corporate.</span></span><span class="sig-name descname"><span class="pre">CorporateRiskAssessment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">economic_indicators</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#credit_risk.core.economic.EconomicIndicators" title="credit_risk.core.economic.EconomicIndicators"><span class="pre">EconomicIndicators</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/credit_risk/models/corporate.html#CorporateRiskAssessment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#credit_risk.models.corporate.CorporateRiskAssessment" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseRiskAssessment</span></code></p>
+<p>Handle corporate credit risk assessment</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="credit_risk.models.corporate.CorporateRiskAssessment.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">economic_indicators</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#credit_risk.core.economic.EconomicIndicators" title="credit_risk.core.economic.EconomicIndicators"><span class="pre">EconomicIndicators</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/credit_risk/models/corporate.html#CorporateRiskAssessment.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#credit_risk.models.corporate.CorporateRiskAssessment.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="credit_risk.models.corporate.CorporateRiskAssessment.calculate_risk_score">
+<span class="sig-name descname"><span class="pre">calculate_risk_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></span><a class="reference internal" href="_modules/credit_risk/models/corporate.html#CorporateRiskAssessment.calculate_risk_score"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#credit_risk.models.corporate.CorporateRiskAssessment.calculate_risk_score" title="Link to this definition"></a></dt>
+<dd><p>Calculate corporate risk score with economic factors</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+<section id="utilities">
+<h2>Utilities<a class="headerlink" href="#utilities" title="Link to this heading"></a></h2>
+<section id="data-processing">
+<h3>Data Processing<a class="headerlink" href="#data-processing" title="Link to this heading"></a></h3>
+</section>
+<section id="model-validation">
+<h3>Model Validation<a class="headerlink" href="#model-validation" title="Link to this heading"></a></h3>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Omoshola Owolabi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

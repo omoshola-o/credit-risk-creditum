@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>credit_risk.core.economic &mdash; Credit Risk Assessment 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Credit Risk Assessment
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Credit Risk Assessment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">credit_risk.core.economic</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for credit_risk.core.economic</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="c1"># Example for EconomicIndicators class</span>
+<div class="viewcode-block" id="EconomicIndicators">
+<a class="viewcode-back" href="../../../api.html#credit_risk.core.economic.EconomicIndicators">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">EconomicIndicators</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handle economic indicators and their impact on credit risk assessment.</span>
+
+<span class="sd">    This class manages various economic indicators such as CPI, GDP growth,</span>
+<span class="sd">    unemployment rate, etc., and calculates their impact on credit risk.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        indicators (dict): Dictionary storing current economic indicators.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="EconomicIndicators.update_indicators">
+<a class="viewcode-back" href="../../../api.html#credit_risk.core.economic.EconomicIndicators.update_indicators">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indicator_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update economic indicators with current data.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            indicator_data (Dict[str, Any]): Dictionary containing economic indicators.</span>
+<span class="sd">                Expected keys:</span>
+<span class="sd">                - cpi (float): Consumer Price Index</span>
+<span class="sd">                - gdp_growth (float): GDP growth rate</span>
+<span class="sd">                - unemployment_rate (float): Unemployment rate</span>
+<span class="sd">                - interest_rate (float): Current interest rate</span>
+<span class="sd">                - inflation_rate (float): Inflation rate</span>
+<span class="sd">                - industry_growth (Dict[str, float]): Growth rates by industry</span>
+<span class="sd">                - market_volatility (float): Market volatility index</span>
+<span class="sd">                - currency_stability (float): Currency stability index</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; economic = EconomicIndicators()</span>
+<span class="sd">            &gt;&gt;&gt; data = {</span>
+<span class="sd">            ...     &#39;cpi&#39;: 0.02,</span>
+<span class="sd">            ...     &#39;gdp_growth&#39;: 0.03,</span>
+<span class="sd">            ...     &#39;unemployment_rate&#39;: 0.05</span>
+<span class="sd">            ... }</span>
+<span class="sd">            &gt;&gt;&gt; economic.update_indicators(data)</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+</div>
+
+
+<span class="c1"># Example for CreditApplication class</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CreditApplication</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handle credit applications and make approval decisions.</span>
+
+<span class="sd">    This class processes both individual and corporate credit applications,</span>
+<span class="sd">    incorporating economic factors and risk assessments to make lending decisions.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        min_credit_score (int): Minimum required credit score. Defaults to 600.</span>
+<span class="sd">        max_dti (float): Maximum allowed debt-to-income ratio. Defaults to 0.43.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        economic_indicators (EconomicIndicators): Economic data manager</span>
+<span class="sd">        individual_assessment (IndividualRiskAssessment): Individual risk calculator</span>
+<span class="sd">        corporate_assessment (CorporateRiskAssessment): Corporate risk calculator</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">make_decision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">application_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> 
+                     <span class="n">entity_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;individual&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Make credit approval decision based on application data.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            application_data (Dict[str, Any]): Application information including:</span>
+<span class="sd">                For individuals:</span>
+<span class="sd">                    - credit_score (int)</span>
+<span class="sd">                    - monthly_income (float)</span>
+<span class="sd">                    - monthly_debt (float)</span>
+<span class="sd">                    - loan_amount (float)</span>
+<span class="sd">                    - loan_purpose (str)</span>
+<span class="sd">                For corporations:</span>
+<span class="sd">                    - years_in_business (int)</span>
+<span class="sd">                    - annual_revenue (float)</span>
+<span class="sd">                    - industry (str)</span>
+<span class="sd">                    - loan_amount (float)</span>
+<span class="sd">                    - loan_purpose (str)</span>
+<span class="sd">            entity_type (str): Type of entity (&#39;individual&#39; or &#39;corporate&#39;).</span>
+<span class="sd">                Defaults to &#39;individual&#39;.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Dict[str, Any]: Decision result containing:</span>
+<span class="sd">                - decision (str): &#39;approved&#39; or &#39;rejected&#39;</span>
+<span class="sd">                - risk_score (float): Calculated risk score</span>
+<span class="sd">                - risk_category (str): &#39;low&#39;, &#39;medium&#39;, or &#39;high&#39;</span>
+<span class="sd">                - max_loan_amount (float): Maximum approved loan amount</span>
+<span class="sd">                - economic_factor (float): Impact of economic conditions</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; app = CreditApplication()</span>
+<span class="sd">            &gt;&gt;&gt; data = {</span>
+<span class="sd">            ...     &#39;credit_score&#39;: 720,</span>
+<span class="sd">            ...     &#39;monthly_income&#39;: 5000,</span>
+<span class="sd">            ...     &#39;monthly_debt&#39;: 1500,</span>
+<span class="sd">            ...     &#39;loan_amount&#39;: 20000,</span>
+<span class="sd">            ...     &#39;loan_purpose&#39;: &#39;home_improvement&#39;</span>
+<span class="sd">            ... }</span>
+<span class="sd">            &gt;&gt;&gt; result = app.make_decision(data, &#39;individual&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">indicators</span> <span class="o">=</span> <span class="p">{}</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_indicators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indicator_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update economic indicators with current data&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">indicators</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+            <span class="s1">&#39;cpi&#39;</span><span class="p">:</span> <span class="n">indicator_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cpi&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+            <span class="s1">&#39;gdp_growth&#39;</span><span class="p">:</span> <span class="n">indicator_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gdp_growth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+            <span class="s1">&#39;unemployment_rate&#39;</span><span class="p">:</span> <span class="n">indicator_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;unemployment_rate&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+            <span class="s1">&#39;interest_rate&#39;</span><span class="p">:</span> <span class="n">indicator_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;interest_rate&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+            <span class="s1">&#39;inflation_rate&#39;</span><span class="p">:</span> <span class="n">indicator_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;inflation_rate&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+            <span class="s1">&#39;industry_growth&#39;</span><span class="p">:</span> <span class="n">indicator_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;industry_growth&#39;</span><span class="p">,</span> <span class="p">{}),</span>
+            <span class="s1">&#39;market_volatility&#39;</span><span class="p">:</span> <span class="n">indicator_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;market_volatility&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+            <span class="s1">&#39;currency_stability&#39;</span><span class="p">:</span> <span class="n">indicator_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;currency_stability&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="p">})</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_economic_risk_factor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;individual&#39;</span><span class="p">,</span> 
+                                     <span class="n">industry</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate economic risk factor based on entity type and industry&quot;&quot;&quot;</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_economic_weights</span><span class="p">(</span><span class="n">entity_type</span><span class="p">)</span>
+        
+        <span class="n">risk_factor</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">indicator</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">weights</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">indicator</span> <span class="o">==</span> <span class="s1">&#39;industry_growth&#39;</span> <span class="ow">and</span> <span class="n">industry</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">indicators</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">indicator</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">industry</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">indicators</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">indicator</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+            <span class="n">risk_factor</span> <span class="o">+=</span> <span class="n">value</span> <span class="o">*</span> <span class="n">weight</span>
+            
+        <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">risk_factor</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_economic_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get economic factor weights based on entity type&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">entity_type</span> <span class="o">==</span> <span class="s1">&#39;individual&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s1">&#39;cpi&#39;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+                <span class="s1">&#39;unemployment_rate&#39;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+                <span class="s1">&#39;interest_rate&#39;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
+                <span class="s1">&#39;inflation_rate&#39;</span><span class="p">:</span> <span class="mf">0.2</span>
+            <span class="p">}</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;gdp_growth&#39;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
+            <span class="s1">&#39;industry_growth&#39;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+            <span class="s1">&#39;interest_rate&#39;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
+            <span class="s1">&#39;market_volatility&#39;</span><span class="p">:</span> <span class="mf">0.15</span><span class="p">,</span>
+            <span class="s1">&#39;currency_stability&#39;</span><span class="p">:</span> <span class="mf">0.15</span>
+        <span class="p">}</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Omoshola Owolabi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

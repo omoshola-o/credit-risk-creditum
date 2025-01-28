@@ -1,0 +1,243 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>credit_risk.core.application &mdash; Credit Risk Assessment 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Credit Risk Assessment
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Credit Risk Assessment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">credit_risk.core.application</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for credit_risk.core.application</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.economic</span><span class="w"> </span><span class="kn">import</span> <span class="n">EconomicIndicators</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..models.individual</span><span class="w"> </span><span class="kn">import</span> <span class="n">IndividualRiskAssessment</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..models.corporate</span><span class="w"> </span><span class="kn">import</span> <span class="n">CorporateRiskAssessment</span>
+
+<div class="viewcode-block" id="CreditApplication">
+<a class="viewcode-back" href="../../../api.html#credit_risk.core.application.CreditApplication">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">CreditApplication</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Handle credit applications and make approval decisions&quot;&quot;&quot;</span>
+    
+<div class="viewcode-block" id="CreditApplication.__init__">
+<a class="viewcode-back" href="../../../api.html#credit_risk.core.application.CreditApplication.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_credit_score</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="n">max_dti</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.43</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_credit_score</span> <span class="o">=</span> <span class="n">min_credit_score</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_dti</span> <span class="o">=</span> <span class="n">max_dti</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">economic_indicators</span> <span class="o">=</span> <span class="n">EconomicIndicators</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">individual_assessment</span> <span class="o">=</span> <span class="n">IndividualRiskAssessment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">economic_indicators</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">corporate_assessment</span> <span class="o">=</span> <span class="n">CorporateRiskAssessment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">economic_indicators</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="CreditApplication.validate_application">
+<a class="viewcode-back" href="../../../api.html#credit_risk.core.application.CreditApplication.validate_application">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_application</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">application_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> 
+                           <span class="n">entity_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;individual&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate credit application data&quot;&quot;&quot;</span>
+        <span class="n">required_fields</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_required_fields</span><span class="p">(</span><span class="n">entity_type</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">required_fields</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">field</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">application_data</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Missing required field: </span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2">&quot;</span>
+        
+        <span class="k">if</span> <span class="n">entity_type</span> <span class="o">==</span> <span class="s1">&#39;individual&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_individual</span><span class="p">(</span><span class="n">application_data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_corporate</span><span class="p">(</span><span class="n">application_data</span><span class="p">)</span></div>
+
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_individual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate individual application&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;credit_score&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_credit_score</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Credit score below minimum requirement&quot;</span>
+        
+        <span class="n">dti</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_dti</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;monthly_debt&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;monthly_income&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">dti</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_dti</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Debt-to-income ratio too high&quot;</span>
+        
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Application valid&quot;</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_corporate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate corporate application&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;years_in_business&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Minimum 2 years in business required&quot;</span>
+        
+        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;annual_revenue&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">100000</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Minimum annual revenue requirement not met&quot;</span>
+        
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Application valid&quot;</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_required_fields</span><span class="p">(</span><span class="n">entity_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get required fields based on entity type&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">entity_type</span> <span class="o">==</span> <span class="s1">&#39;individual&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span>
+                <span class="s1">&#39;credit_score&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;monthly_income&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;monthly_debt&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;loan_amount&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;loan_purpose&#39;</span>
+            <span class="p">]</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="s1">&#39;years_in_business&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;annual_revenue&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;industry&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;loan_amount&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;loan_purpose&#39;</span>
+        <span class="p">]</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_calculate_dti</span><span class="p">(</span><span class="n">monthly_debt</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">monthly_income</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate Debt-to-Income ratio&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">monthly_income</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">monthly_debt</span> <span class="o">/</span> <span class="n">monthly_income</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+    
+<div class="viewcode-block" id="CreditApplication.make_decision">
+<a class="viewcode-back" href="../../../api.html#credit_risk.core.application.CreditApplication.make_decision">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">make_decision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">application_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> 
+                     <span class="n">entity_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;individual&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Make credit approval decision&quot;&quot;&quot;</span>
+        <span class="n">is_valid</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_application</span><span class="p">(</span><span class="n">application_data</span><span class="p">,</span> <span class="n">entity_type</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s1">&#39;decision&#39;</span><span class="p">:</span> <span class="s1">&#39;rejected&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;reason&#39;</span><span class="p">:</span> <span class="n">message</span><span class="p">,</span>
+                <span class="s1">&#39;risk_score&#39;</span><span class="p">:</span> <span class="kc">None</span>
+            <span class="p">}</span>
+        
+        <span class="c1"># Calculate risk score based on entity type</span>
+        <span class="k">if</span> <span class="n">entity_type</span> <span class="o">==</span> <span class="s1">&#39;individual&#39;</span><span class="p">:</span>
+            <span class="n">risk_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">individual_assessment</span><span class="o">.</span><span class="n">calculate_risk_score</span><span class="p">(</span><span class="n">application_data</span><span class="p">)</span>
+            <span class="n">assessor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">individual_assessment</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">risk_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">corporate_assessment</span><span class="o">.</span><span class="n">calculate_risk_score</span><span class="p">(</span><span class="n">application_data</span><span class="p">)</span>
+            <span class="n">assessor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">corporate_assessment</span>
+        
+        <span class="n">risk_category</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_risk_category</span><span class="p">(</span><span class="n">risk_score</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;decision&#39;</span><span class="p">:</span> <span class="s1">&#39;approved&#39;</span> <span class="k">if</span> <span class="n">risk_category</span> <span class="o">!=</span> <span class="s1">&#39;high&#39;</span> <span class="k">else</span> <span class="s1">&#39;rejected&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;risk_score&#39;</span><span class="p">:</span> <span class="n">risk_score</span><span class="p">,</span>
+            <span class="s1">&#39;risk_category&#39;</span><span class="p">:</span> <span class="n">risk_category</span><span class="p">,</span>
+            <span class="s1">&#39;max_loan_amount&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_max_loan_amount</span><span class="p">(</span>
+                <span class="n">application_data</span><span class="p">,</span>
+                <span class="n">risk_score</span><span class="p">,</span>
+                <span class="n">entity_type</span>
+            <span class="p">)</span> <span class="k">if</span> <span class="n">risk_category</span> <span class="o">!=</span> <span class="s1">&#39;high&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;economic_factor&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">economic_indicators</span><span class="o">.</span><span class="n">calculate_economic_risk_factor</span><span class="p">(</span>
+                <span class="n">entity_type</span><span class="p">,</span>
+                <span class="n">industry</span><span class="o">=</span><span class="n">application_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;industry&#39;</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="p">}</span></div>
+
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">_calculate_max_loan_amount</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">application_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+                                <span class="n">risk_score</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">entity_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate maximum loan amount&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">entity_type</span> <span class="o">==</span> <span class="s1">&#39;individual&#39;</span><span class="p">:</span>
+            <span class="n">base_max</span> <span class="o">=</span> <span class="n">application_data</span><span class="p">[</span><span class="s1">&#39;monthly_income&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">36</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">base_max</span> <span class="o">=</span> <span class="n">application_data</span><span class="p">[</span><span class="s1">&#39;annual_revenue&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.5</span>
+        
+        <span class="n">risk_multiplier</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">risk_score</span>
+        <span class="k">return</span> <span class="n">base_max</span> <span class="o">*</span> <span class="n">risk_multiplier</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_risk_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">risk_score</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Determine risk category based on risk score&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">risk_score</span> <span class="o">&lt;=</span> <span class="mf">0.3</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;low&#39;</span>
+        <span class="k">elif</span> <span class="n">risk_score</span> <span class="o">&lt;=</span> <span class="mf">0.6</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;medium&#39;</span>
+        <span class="k">return</span> <span class="s1">&#39;high&#39;</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Omoshola Owolabi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
